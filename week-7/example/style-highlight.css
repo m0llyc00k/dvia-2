@@ -1,0 +1,56 @@
+.title {
+    font-size: 55px;
+    margin-bottom: -5px;
+}
+
+.description {
+    padding-bottom: 15px;
+}
+
+/* Create two unequal columns that floats next to each other */
+.column {
+    float: right;
+}
+
+/* Right column */
+.column.side {
+    width: 25%;
+    font-family: garamond;
+    text-align: center;
+    padding-left: 25px;
+    padding-right: 25px;
+}
+
+/* Middle column */
+.column.middle{
+    height: 100vh;
+    width: 70%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: grid;
+    place-items: center;
+    font-size: 9.5px;
+    padding-left: 15px;
+    padding-right: 30px;
+    border-right: 2px solid black;
+}
+
+mark{
+    background-color: #ffdd4b;
+}
+
+unmark{
+    background-color: #ffffff;
+}
+
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .column.side, .column.middle {
+    width: 100%;
+  }
+  
+  .column.middle {
+      padding-top: 400px;
+  }
+}

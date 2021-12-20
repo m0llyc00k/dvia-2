@@ -1,0 +1,226 @@
+<head>
+    <meta charset='utf-8'>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <title>Rat Sightings 2020-2021</title>
+
+    <!-- https://d3js.org/ -->
+    <script src='https://d3js.org/d3.v7.min.js'></script>
+    <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v2.5.1/mapbox-gl.js"></script>
+    <link href="https://api.tiles.mapbox.com/mapbox-gl-js/v2.5.1/mapbox-gl.css" rel="stylesheet" />
+    <style>
+        body {
+            padding: 0;
+            margin: 0;
+        }
+
+        #map {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            margin: auto auto;
+        }
+
+        /*.markerAll {*/
+
+        /*width: 5px;*/
+
+        /*height: 5px;*/
+
+        /*    background-color: navy;*/
+
+        /*    border-radius: 50%;*/
+
+        /*    cursor: pointer;*/
+
+        /*    opacity: .3;*/
+
+        /*}*/
+
+        /*.markerAll: hover {*/
+
+        /*    opacity: 1;*/
+
+        /*    background-color: red;*/
+
+        /*}*/
+
+        .session {
+            margin-bottom: 20px;
+        }
+
+        .row {
+            height: 12px;
+            width: 100%;
+        }
+
+        .colors {
+            background: linear-gradient(to right, #2dc4b2, #3bb3c3, #669ec4, #8b88b6, #a2719b, #aa5e79);
+            margin-bottom: 5px;
+        }
+
+        .label {
+            width: 15%;
+            display: inline-block;
+            text-align: center;
+        }
+
+        svg {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .mapboxgl-popup {
+            max-width: 150px;
+        }
+
+        .mapboxgl-popup-content {
+            text-align: center;
+            font-family: sans-serif;
+        }
+
+        text {
+            font-size: 12pt;
+            font-weight: bold;
+        }
+
+        h3 {
+            margin: 10px;
+            font-size: 16px;
+        }
+
+        h4 {
+            font-size: 14px;
+            color: navy;
+        }
+
+        p {
+            margin: 10px;
+        }
+
+        .map-overlay {
+            position: absolute;
+            width: 25%;
+            bottom: 0;
+            right: 0;
+            background: #fff;
+            margin-right: 50px;
+            font-family: Arial, sans-serif;
+            overflow: auto;
+            border-radius: 3px;
+        }
+
+        #features {
+            top: 0;
+            height: 145px;
+            margin-top: 20px;
+            width: 320px;
+            text-align: center;
+        }
+
+        #legend {
+            padding: 10px;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+            line-height: 20px;
+            height: 120px;
+            margin-bottom: 40px;
+            width: 130px;
+        }
+
+        .legend-key {
+            display: inline-block;
+            border-radius: 50%;
+            width: 10px;
+            height: 10px;
+            margin-right: 5px;
+        }
+
+        img {
+            max-width: 25%;
+        }
+    </style>
+
+
+
+</head>
+
+<body>
+    <div id='map'></div>
+    <div class='session'>
+        <h2>Casualty</h2>
+        <div class='row colors'>
+        </div>
+        <div class='row labels'>
+            <div class='label'>0</div>
+            <div class='label'>1</div>
+            <div class='label'>2</div>
+            <div class='label'>3</div>
+            <div class='label'>4</div>
+            <div class='label'>5+</div>
+        </div>
+
+    </div>
+    <div id="legend1" style="display: inline-block"></div>
+    <div class='map-overlay' id='features'>
+        <h1>Rodents during the Pandemic</h1>
+        <div id='legend'>
+            <h2>March 2020 - November 2021</h2>
+            <p>Inspiration: <a href='https://www.nytimes.com/2021/11/05/nyregion/nyc-rats-sightings.html' target="blank">N.Y.C. Rats: They’re in the Park, on Your Block and Even at Your Tables</p></a>
+        </div>
+
+    </div>
+    <div class="map-overlay top">
+        <div class="map-overlay-inner">
+            <h2>Rodent Sightings</h2>
+            <!--<p>March 2020 - November 2021</p>-->
+            <label id="month"></label>
+            <input id="slider" type="range" min="0" max="11" step="1" value="0">
+        </div>
+        <div class="map-overlay-inner">
+            <div id="legend" class="legend">
+                <div class="bar"></div>
+                <div>Number of Sightings</div>
+            </div>
+        </div>
+    </div>
+    <div id="console">
+        <h1>Motor vehicle collisions</h1>
+        <p>
+            Data:
+            <a href="https://data.cityofnewyork.us/Public-Safety/NYPD-Motor-Vehicle-Collisions/h9gi-nx95">Motor vehicle collision injuries and death</a> in NYC, Jan 2016
+        </p>
+        <!--<div class="session">-->
+        <!--    <h2>Casualty</h2>-->
+        <!--    <div class="row colors"></div>-->
+        <!--    <div class="row labels">-->
+        <!--        <div class="label">0</div>-->
+        <!--        <div class="label">1</div>-->
+        <!--        <div class="label">2</div>-->
+        <!--        <div class="label">3</div>-->
+        <!--        <div class="label">4</div>-->
+        <!--        <div class="label">5+</div>-->
+        <!--    </div>-->
+        <!--</div>-->
+        <div class="session">
+            <h2>Hour: <label id="active-hour">12PM</label></h2>
+            <input id="slider" class="row" type="range" min="0" max="23" step="1" value="12" />
+        </div>
+        <div class="session">
+            <h2>Day of the week</h2>
+            <div class="row" id="filters">
+                <input id="all" type="radio" name="toggle" value="all" checked="checked" />
+                <label for="all">All</label>
+                <input id="weekday" type="radio" name="toggle" value="weekday" />
+                <label for="weekday">Weekday</label>
+                <input id="weekend" type="radio" name="toggle" value="weekend" />
+                <label for="weekend">Weekend</label>
+            </div>
+        </div>
+    </div>
+    </div>
+    <script src="./app.js"></script>
+</body>

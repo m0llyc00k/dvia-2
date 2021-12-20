@@ -1,0 +1,12 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2021-11-03T03:17:48.410Z,-32.6979,-70.0534,98.49,5.7,mww,,18,0.424,0.71,us,us7000fr0v,2021-11-05T18:09:07.335Z,"53 km ENE of Los Andes, Chile",earthquake,4.7,3,0.041,58,reviewed,us,us
+2021-10-24T14:01:02.280Z,34.0168333,-118.1973333,17.15,3.61,mw,126,15,0.01676,0.24,ci,ci39841223,2021-11-01T05:29:33.780Z,"3km WSW of East Los Angeles, CA",earthquake,0.15,0.27,,4,reviewed,ci,ci
+2021-10-24T05:11:34.344Z,24.5714,121.8303,64.52,6.2,mww,,15,0.425,1.36,us,us6000fx56,2021-10-28T18:09:20.901Z,"21 km SSE of Yilan, Taiwan",earthquake,6.4,4,0.048,41,reviewed,us,us
+2021-10-19T05:32:32.668Z,34.5883,28.3882,41.53,5.9,mww,,25,1.388,0.52,us,us6000fvtm,2021-10-21T06:46:06.264Z,"147 km SE of Karpathos, Greece",earthquake,5.6,3.6,0.05,38,reviewed,us,us
+2021-10-15T02:44:57.920Z,-8.8768,158.4815,22.55,6.4,mww,,21,1.551,0.87,us,us6000furk,2021-10-16T18:25:09.537Z,"Solomon Islands",earthquake,4.9,4.4,0.078,16,reviewed,us,us
+2021-10-12T09:24:03.839Z,35.1931,26.2556,10,6.4,mww,,20,0.82,0.73,us,us6000ftxu,2021-10-17T17:55:29.061Z,"0 km SSE of Palekastro, Greece",earthquake,5,1.8,0.051,37,reviewed,us,us
+2021-10-11T09:10:24.682Z,56.2584,-156.5532,69.1,6.9,mww,,,,0.71,ak,ak021d1u1nos,2021-11-03T12:48:09.104Z,"114 km E of Chignik, Alaska",earthquake,,0.9,,,reviewed,ak,ak
+2021-10-10T21:48:36.560Z,18.8203333333333,-155.527166666667,35.06,6.21,ml,54,278,,0.12,hv,hv72748782,2021-11-04T21:58:42.962Z,"Hawaii region, Hawaii",earthquake,0.52,0.93,0.153984707746698,25,reviewed,hv,hv
+2021-10-09T10:58:31.956Z,-21.1889,174.5221,535,6.9,mww,,31,4.778,0.64,us,us6000ft9g,2021-10-31T13:07:21.953Z,"Vanuatu region",earthquake,9.7,1.9,0.05,38,reviewed,us,us
+2021-10-07T13:41:24.564Z,35.5778,140.0664,62,5.9,mww,,29,1.785,1.11,us,us6000fsl6,2021-11-02T08:28:01.085Z,"near the east coast of Honshu, Japan",earthquake,6,1.9,0.055,32,reviewed,us,us
+2021-10-06T22:01:08.867Z,30.1936,67.9957,9,5.9,mww,,17,4.424,0.52,us,us6000fsg9,2021-10-27T04:06:25.625Z,"11 km NNE of Harnai, Pakistan",earthquake,8.4,1.7,0.098,10,reviewed,us,us
